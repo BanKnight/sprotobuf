@@ -1,18 +1,7 @@
-const proto = `
-message example_test
-{
-    int32 int_val = 1
-    string string_val = 2
-    bool bool_val = 3
-    double double_val = 4
-    [int32] int_vals = 5
-    <string,int32> map_val = 6
-}
-`
 const sprotobuf = require("../lib")
 const op = require("buffer-op")
 
-const root = sprotobuf.parse(proto)
+const root = sprotobuf.load("./example/rpc.proto")
 
 let obj = {
     int_val: 1,
@@ -27,8 +16,11 @@ let stream = new op.Stream()
 let writer = new op.Writer(stream)
 let reader = new op.Reader(stream)
 
-sprotobuf.to_buf(root, writer, "example_test", obj)
+sprotobuf.to_msg(root, writer, "example_test", obj)
+sprotobuf.to_rpc(root, writer, "example.echo", "123")
 
-let resp = sprotobuf.from_buf(root, reader, "example_test")
+let resp = sprotobuf.from_msg(root, reader, "example_test")
+let rpc = sprotobuf.from_rpc(root, reader)
 
 console.dir(resp, 10)
+console.dir(rpc)
