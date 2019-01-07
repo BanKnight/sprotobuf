@@ -21,7 +21,8 @@
     "url": "https://github.com/BanKnight/sprotobuf/issues"
   },
   "homepage": "https://github.com/BanKnight/sprotobuf#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "buffer-op": "^0.1.5"
   }
 }
