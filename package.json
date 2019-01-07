@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/BanKnight/sprotobuf#readme",
   "dependencies": {
-    "buffer-op": "^0.1.4"
+    "buffer-op": "^0.1.5"
   }
 }

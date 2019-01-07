@@ -22,5 +22,5 @@ sprotobuf.to_rpc(root, writer, "example.echo", "123")
 let resp = sprotobuf.from_msg(root, reader, "example_test")
 let rpc = sprotobuf.from_rpc(root, reader)
 
-console.dir(resp, 10)
+console.dir(resp)
 console.dir(rpc)
