@@ -1,6 +1,6 @@
 {
   "name": "sprotobuf",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/BanKnight/sprotobuf#readme",
   "dependencies": {},
   "devDependencies": {
-    "buffer-op": "^0.1.5"
+    "buffer-op": "^0.1.5",
+    "webpack": "^4.12.0"
   }
 }

@@ -6,37 +6,12 @@ message example_test
     double double_val = 4;
     [int32] int_vals = 5;
     <string,int32> map_val = 6;
+    [box] nesteds = 7;
 }
-message error
-{
-    int32 code = 1;
-    string reason = 2;
-}
-message call
-{
-    uint32 service = 1;
-    uint32 method = 2;
-    uint32 session = 3;
-    bytes req = 4;
-}
-message response
-{
-    uint32 session = 1;
 
-    error err = 2;
-    bytes resp = 3;   
-}
-message invoke
+message box
 {
-    uint32 service = 1;  //line comment
-    uint32 method = 2; //line comment
-    bytes req = 3;
-}
-message net_data        /* block comments */
-{
-    call ca = 1;
-    invoke inv = 2;
-    response resp = 3;
+    int32 test = 1;
 }
 
 /*
@@ -49,7 +24,7 @@ comment
 service example
 {
     rpc test () return (bool){}
-    rpc echo(<string,int32> two) return(string){}
+    rpc echo(<string,int32> two) return(<string,string>){}
 }
 service chat
 {
