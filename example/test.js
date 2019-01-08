@@ -17,7 +17,7 @@ let writer = new op.Writer(stream)
 let reader = new op.Reader(stream)
 
 sprotobuf.to_msg(root, writer, "example_test", obj)
-sprotobuf.to_rpc(root, writer, "example.echo", "123")
+sprotobuf.to_rpc(root, writer, "example.echo", { a: "123" })
 
 let resp = sprotobuf.from_msg(root, reader, "example_test")
 let rpc = sprotobuf.from_rpc(root, reader)
