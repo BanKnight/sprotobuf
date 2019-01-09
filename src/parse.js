@@ -13,20 +13,23 @@ const setCommentRe = /^ *[*/]+ */,
 const nameRe = /^[a-zA-Z_][a-zA-Z_0-9]*$/,
     typeRefRe = /^(?:\.?[a-zA-Z_][a-zA-Z_0-9]*)(?:\.[a-zA-Z_][a-zA-Z_0-9]*)*$/
 
-
 const s = [
+
     "double",   // 0
     "float",    // 1
+
+    "uint8",
+    "int8",
+
+    "int16",   // 4
+    "uint16",  // 5
+
     "int32",    // 2
     "uint32",   // 3
-    "sint32",   // 4
-    "fixed32",  // 5
-    "sfixed32", // 6
+
     "int64",    // 7
     "uint64",   // 8
-    "sint64",   // 9
-    "fixed64",  // 10
-    "sfixed64", // 11
+
     "bool",     // 12
     "string",   // 13
     "bytes"     // 14

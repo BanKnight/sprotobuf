@@ -174,23 +174,15 @@ encoder.write_val = function (root, writer, tp, val)
     {
         case "double":   // 0
         case "float":    // 1
-            writer.append_double(val)
-            break
+        case "uint8":
+        case "int8":
+        case "int16":   // 4
+        case "uint16":  // 5
         case "int32":    // 2
-        case "sint32":   // 4
-        case "sfixed32": // 6
-            writer.append_int32(val)
-            break
         case "uint32":   // 3
-        case "fixed32":  // 5
-            writer.append_uint32(val)
-            break
         case "int64":    // 7
         case "uint64":   // 8
-        case "sint64":   // 9
-        case "fixed64":  // 10
-        case "sfixed64": // 11
-            writer.append_int64(val)
+            writer[`append_${tp}`](val)
             break
         case "bool":     // 12
             writer.append_uint8(val ? 1 : 0)

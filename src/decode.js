@@ -139,23 +139,15 @@ decoder.read_val = function (root, reader, tp)
     {
         case "double":   // 0
         case "float":    // 1
-            val = reader.read_double()
-            break
+        case "uint8":
+        case "int8":
+        case "int16":   // 4
+        case "uint16":  // 5
         case "int32":    // 2
-        case "sint32":   // 4
-        case "sfixed32": // 6
-            val = reader.read_int32()
-            break
         case "uint32":   // 3
-        case "fixed32":  // 5
-            val = reader.read_uint32()
-            break
         case "int64":    // 7
         case "uint64":   // 8
-        case "sint64":   // 9
-        case "fixed64":  // 10
-        case "sfixed64": // 11
-            val = reader.read_int64()
+            val = reader[`read_${tp}`]()
             break
         case "bool":     // 12
             val = reader.read_uint8() == 1

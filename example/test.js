@@ -1,4 +1,4 @@
-const sprotobuf = require("../lib")
+const sprotobuf = require("../src")
 const op = require("buffer-op")
 
 const root = sprotobuf.load("./example/rpc.proto")
