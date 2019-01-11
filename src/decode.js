@@ -66,6 +66,11 @@ lib.from_resp = function (root, reader, name)
         throw Error("no such method:" + name)
     }
 
+    if (method.resp == null)
+    {
+        return
+    }
+
     let ret = decoder.read_type(root, reader, method.resp)
 
     return ret

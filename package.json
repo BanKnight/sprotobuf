@@ -1,6 +1,6 @@
 {
   "name": "sprotobuf",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "",
   "module": "dist/sprotobuf.min.js",
   "main": "src/index.js",
