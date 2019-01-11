@@ -73,10 +73,7 @@ lib.from_resp = function (root, reader, name)
 
 lib.from_error = function (root, reader)
 {
-    return {
-        code: reader.read_uint16(),
-        reason: reader.read_string()
-    }
+    return [reader.read_uint16(), reader.read_string()]
 }
 
 decoder.msg_to_obj = function (root, reader, message)
