@@ -7,7 +7,8 @@ module.exports = {
     output: {
         filename: 'sprotobuf.min.js',
         path: path.resolve(__dirname, 'dist'),
-        library: 'sprotobuf'
+        library: 'sprotobuf',
+        libraryTarget: "umd",
     },
     devtool: 'source-map',
     // plugins: [
