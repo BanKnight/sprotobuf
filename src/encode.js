@@ -101,14 +101,18 @@ encoder.obj_to_msg = function (root, writer, message, obj)
     let len = 0
     for (let key in obj)
     {
+        let val = obj[key]
+        if (val == null)
+        {
+            continue
+        }
+
         let field = message.fields.get(key)
 
         if (field == null)
         {
             continue
         }
-
-        let val = obj[key]
 
         writer.append_uint8(field.id)
 
@@ -156,6 +160,10 @@ encoder.write_type = function (root, writer, tp, target)
             for (let key in target)
             {
                 let val = target[key]
+                if (val == null)
+                {
+                    continue
+                }
 
                 encoder.write_val(root, writer, tp.key, key)
                 encoder.write_type(root, writer, tp.val, val)
