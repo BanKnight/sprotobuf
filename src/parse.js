@@ -489,7 +489,7 @@ lib.parse = function (source)
                 {
                     continue
                 }
-                if (s.indexOf(param.val) > -1)
+                if (s.indexOf(param.val) > -1)      //基础类型
                 {
                     continue
                 }
@@ -501,6 +501,27 @@ lib.parse = function (source)
                 }
                 param.val = that_type
             }
+
+            if (method.resp == null)
+            {
+                continue
+            }
+
+            if (typeof (method.resp.val) == "object")
+            {
+                continue
+            }
+            if (s.indexOf(method.resp.val) > -1)            //基础类型
+            {
+                continue
+            }
+
+            let that_type = proto.messages.get(method.resp.val)
+            if (that_type == null)
+            {
+                throw Error("no such type:" + method.resp.val)
+            }
+            method.resp.val = that_type
         }
     }
 
